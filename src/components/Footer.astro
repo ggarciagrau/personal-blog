@@ -1,8 +1,19 @@
 ---
-import Social from "./Social.astro"
+import Social from "./Social.astro";
 ---
+
 <footer>
-    <hr>
+  <hr />
+  <div class="social">
     <Social platform="linkedin" username="in/gerard-garcia-grau" />
-    <p>Copyright &copy; Gerard 2024</p>
+  </div>
+  <p>Copyright &copy; Gerard 2024</p>
 </footer>
+
+<style>
+    .social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+</style>
