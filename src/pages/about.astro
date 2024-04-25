@@ -1,5 +1,10 @@
 ---
+const title = 'About'
 
+const skills = ['Vue.js', 'React.js', 'Laravel']
+
+
+const working = true
 ---
 
 <html lang="en">
@@ -8,15 +13,21 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<h1>My About Site</h1>
+		<h1>My {title} Site</h1>
         <hr>
 		<a href="/">Home</a>
 		<a href="/about">About</a>
 		<a href="/blog">Blog</a>
         <hr>
-        <p>This is my about me page</p>
+        { working && <p>I'm not searching a job</p>}
+        { working ? <p>Currently employed</p> : <p>Currently not employed</p>}
+        { !working && <p>I'm searching a job</p>}
+        <p>My skills</p>
+        <ul>
+            {skills.map(skill => <li>{skill}</li>)}
+        </ul>
 	</body>
 </html>
