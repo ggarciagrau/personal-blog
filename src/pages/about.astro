@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const title = "About";
@@ -33,7 +33,7 @@ const skillColor = "navy";
   </head>
   <body>
     <h1>My {title} Site</h1>
-    <Navigation />
+    <Header />
     {working && <p>I'm not searching a job</p>}
     {working ? <p>Currently employed</p> : <p>Currently not employed</p>}
     {!working && <p>I'm searching a job</p>}
