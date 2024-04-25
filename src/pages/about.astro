@@ -1,10 +1,7 @@
 ---
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout..astro";
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-
-const title = "About";
+const pageTitle = "About page";
 
 const skills = ["Vue.js", "React.js", "Laravel"];
 
@@ -13,39 +10,23 @@ const working = true;
 const skillColor = "navy";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <style define:vars={{ skillColor }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>My {title} Site</h1>
-    <Header />
-    {working && <p>I'm not searching a job</p>}
-    {working ? <p>Currently employed</p> : <p>Currently not employed</p>}
-    {!working && <p>I'm searching a job</p>}
-    <p>My skills</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
+<BaseLayout pageTitle={pageTitle}>
+  {working && <p>I'm not searching a job</p>}
+  {working ? <p>Currently employed</p> : <p>Currently not employed</p>}
+  {!working && <p>I'm searching a job</p>}
+  <p>My skills</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>
 
-    <Footer />
-
-    <script>
-      import "../scripts/hamburger";
-    </script>
-  </body>
-</html>
+<style define:vars={{ skillColor }}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skill {
+    color: var(--skillColor);
+    font-weight: bold;
+  }
+</style>
