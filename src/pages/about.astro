@@ -1,33 +1,46 @@
 ---
-const title = 'About'
+import '../styles/global.css';
 
-const skills = ['Vue.js', 'React.js', 'Laravel']
+const title = "About";
 
+const skills = ["Vue.js", "React.js", "Laravel"];
 
-const working = true
+const working = true;
+
+const skillColor = "navy";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<h1>My {title} Site</h1>
-        <hr>
-		<a href="/">Home</a>
-		<a href="/about">About</a>
-		<a href="/blog">Blog</a>
-        <hr>
-        { working && <p>I'm not searching a job</p>}
-        { working ? <p>Currently employed</p> : <p>Currently not employed</p>}
-        { !working && <p>I'm searching a job</p>}
-        <p>My skills</p>
-        <ul>
-            {skills.map(skill => <li>{skill}</li>)}
-        </ul>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style define:vars={{skillColor}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My {title} Site</h1>
+    <hr />
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <hr />
+    {working && <p>I'm not searching a job</p>}
+    {working ? <p>Currently employed</p> : <p>Currently not employed</p>}
+    {!working && <p>I'm searching a job</p>}
+    <p>My skills</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+  </body>
 </html>
